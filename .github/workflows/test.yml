@@ -1,1 +1,33 @@
-name: Test
+name: Run Tests
+
+on:
+    push:
+        branches:
+            - main
+            - project-aws
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                repository: project-aws
+                ref: main
+
+            - name: Set up Python 3.9
+              uses: actions/setup-python@v4
+              with:
+                  python-version: '3.9'
+
+            - name: Install dependencies
+              run: |
+                pip install --upgrade pip
+                pip install -r requirements_flask.txt
+                pip install pytest
+
+            - name: Run tests
+              run: |
+                  pytest tests/
