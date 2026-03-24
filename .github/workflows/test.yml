@@ -13,9 +13,7 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
-              with:
-                repository: project-aws
-                ref: main
+             
 
             - name: Set up Python 3.9
               uses: actions/setup-python@v4
@@ -25,7 +23,7 @@ jobs:
             - name: Install dependencies
               run: |
                 pip install --upgrade pip
-                pip install -r requirements_flask.txt
+                pip install -r app/requirements_flask.txt
                 pip install pytest
 
             - name: Run tests
