@@ -30,7 +30,7 @@ jobs:
               run: |
                   pytest tests/
 
-            -name: Trigger Lambda Deployment
-              uses:benc-uk/workflow-dispatch@v1
+            - name: Trigger Lambda Deployment
+              uses: benc-uk/workflow-dispatch@v1
             with:
               workflow: lambda.yml
