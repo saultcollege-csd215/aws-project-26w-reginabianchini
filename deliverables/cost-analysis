@@ -1,0 +1,8 @@
+- Ec2 estimated cost is approximately $4/month for a t2.nano instance running continously. 
+- AWS Lambda costs $0 per 1 million requests
+
+- Break-even point:
+EC2 cost (4) divided by labda cost per 1 M requests = 40 million requests per month.
+
+- Lambda becomes more expensive than EC2 only after approximately 40 million requests per month.
+- However bellow threshold, lambda is cheaper for this workload
