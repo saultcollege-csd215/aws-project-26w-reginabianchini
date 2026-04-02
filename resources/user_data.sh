@@ -16,11 +16,10 @@ APP_DIR=/home/ec2-user/dice
 mkdir -p $APP_DIR
 
 # Clone your application repository (replace with your repo URL)
-git clone !!!Your clone URL here!!! $APP_DIR
+git clone https://github.com/saultcollege-csd215/aws-project-26w-reginabianchini.git  $APP_DIR
 
 # Set the owner of the repo folder to be the user account that will ultimately run the app
 chown -R ec2-user:ec2-user $APP_DIR
-
 cd $APP_DIR
 # Setup Python virtual environment and install dependencies
 python3 -m venv .venv

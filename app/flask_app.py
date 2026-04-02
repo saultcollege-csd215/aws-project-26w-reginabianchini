@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return """Welcome to the Dice API!<br>
+    return """Welcome to the Dice API updated!<br>
                 Use the endpoint <code>/random</code> to get a random number between 1 and 100.<br>
                 Try <code>/roll/d6?n=3</code> to roll three 6-sided dice."""
 
@@ -22,9 +22,15 @@ def roll_dice(num_faces):
 
     result = core.roll_dice(num_faces, num_dice)
 
+    response = {
+        "faces": num_faces,
+        "dice": num_dice,
+        "result": result
+    }
+
     data.save_roll_history(result, source='flask_app')
 
-    return jsonify(result)
-    
+    return jsonify(response)
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000)
