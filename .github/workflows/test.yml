@@ -32,5 +32,6 @@ jobs:
 
             - name: Trigger Lambda Deployment
               uses: benc-uk/workflow-dispatch@v1
-            with:
-              workflow: lambda.yml
+              with:
+               workflow: lambda.yml
+               token: ${{ secrets.GITHUB_TOKEN }}
